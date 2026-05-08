@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iqyan | Notabohu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .heading-font {
+            font-family: 'Playfair Display', serif;
+        }
+        .hero-bg {
+            background: linear-gradient(135deg, #1e1233 0%, #2a1b4a 50%, #1e2a3f 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('https://picsum.photos/id/1015/1920/1080') center/cover;
+            opacity: 0.15;
+            mix-blend-mode: overlay;
+        }
+
+        .nav-link {
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover {
+            color: rgb(167 139 250);
+            transform: translateY(-2px);
+        }
+        .card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background: rgb(167 139 246);
+            bottom: -8px;
+            left: 0;
+            border-radius: 9999px;
+        }
+        .modal {
+            animation: modalPop 0.4s ease;
+        }
+        @keyframes modalPop {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="bg-zinc-950 text-white overflow-x-hidden">
+
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-zinc-950/80 backdrop-blur-lg border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 bg-violet-600 rounded-2xl flex items-center justify-center text-2xl font-bold">★</div>
+                <div>
+                    <span class="heading-font text-2xl font-semibold tracking-tighter">IQYAN</span>
+                    <span class="text-violet-400 text-sm block -mt-1">NOTABOHU</span>
+                </div>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="#about" class="nav-link">About Me</a>
+                <a href="#jasa" class="nav-link">Jasa</a>
+                <a href="#produk" class="nav-link">Produk</a>
+                <a href="#price" class="nav-link">Price</a>
+            </div>
+
+            <button onclick="openContactModal()" 
+                    class="px-6 py-3 bg-white text-zinc-900 rounded-2xl font-semibold hover:bg-violet-300 transition-all flex items-center gap-2">
+                <i class="fa-solid fa-paper-plane"></i>
+                Hubungi Saya
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero-bg min-h-screen flex items-center pt-20">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8">
+                <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-3xl text-sm">
+                    <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                    Available for freelance
+                </div>
+                
+                <h1 class="heading-font text-6xl md:text-7xl font-bold leading-none tracking-tighter">
+                    Hai, saya <span class="text-violet-300">Iqyan</span><br>
+                </h1>
+                
+                <p class="text-xl text-zinc-300 max-w-md">
+                    Digital Creator &amp; Full-Stack Developer. Membuat produk digital dan jasa berkualitas tinggi dengan desain modern.
+                </p>
+                
+                <div class="flex items-center gap-4">
+                    <button onclick="document.getElementById('jasa').scrollIntoView({behavior:'smooth'})" 
+                            class="px-8 py-4 bg-white text-zinc-900 rounded-3xl font-semibold flex items-center gap-3 hover:scale-105 transition-transform">
+                        Lihat Jasa Saya
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                    <button onclick="document.getElementById('produk').scrollIntoView({behavior:'smooth'})" 
+                            class="px-8 py-4 border border-white/30 hover:border-white/60 rounded-3xl font-medium transition-all">
+                        Lihat Produk
+                    </button>
+                </div>
+            </div>
+            
+            <div class="relative flex justify-center">
+                <div class="w-80 h-80 md:w-96 md:h-96 bg-gradient-to-br from-violet-500 to-fuchsia-500 rounded-[4rem] rotate-12 shadow-2xl overflow-hidden">
+                    <img src="https://picsum.photos/id/64/600/600" 
+                         alt="Iqyan Notabohu"
+                         class="w-full h-full object-cover -rotate-12 scale-110 hover:scale-100 transition-transform duration-700">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT ME -->
+    <section id="about" class="py-24 bg-zinc-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="section-title text-5xl heading-font font-semibold mb-8">About Me</h2>
+                    <div class="space-y-6 text-zinc-300 text-lg">
+                        <p>
+                            Halo! Saya Iqyan, seorang kreator digital yang berbasis di Notabohu. 
+                            Dengan pengalaman lebih dari 5 tahun di dunia desain dan pengembangan web, 
+                            saya membantu individu dan bisnis membangun kehadiran digital yang kuat.
+                        </p>
+                        <p>
+                            Saya percaya bahwa teknologi harus indah, fungsional, dan mudah digunakan. 
+                            Kombinasi antara desain modern dan kode yang bersih adalah passion saya.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="bg-zinc-800/50 border border-white/10 rounded-3xl p-8 backdrop-blur-sm">
+                    <h3 class="text-xl font-semibold mb-6 flex items-center gap-3">
+                        <i class="fa-solid fa-code"></i>
+                        Tech Stack
+                    </h3>
+                    <div class="grid grid-cols-4 gap-4 text-center">
+                        <div class="bg-zinc-900 py-6 rounded-2xl hover:bg-violet-950/30 transition-colors">Tailwind</div>
+                        <div class="bg-zinc-900 py-6 rounded-2xl hover:bg-violet-950/30 transition-colors">React</div>
+                        <div class="bg-zinc-900 py-6 rounded-2xl hover:bg-violet-950/30 transition-colors">Next.js</div>
+                        <div class="bg-zinc-900 py-6 rounded-2xl hover:bg-violet-950/30 transition-colors">Figma</div>
+                        <div class="bg-zinc-900 py-6 rounded-2xl hover:bg-violet-950/30 transition-colors">Node.js</div>
+                        <div class="bg-zinc-900 py-6 rounded-2xl hover:bg-violet-950/30 transition-colors">Python</div>
+                        <div class="bg-zinc-900 py-6 rounded-2xl hover:bg-violet-950/30 transition-colors">Framer</div>
+                        <div class="bg-zinc-900 py-6 rounded-2xl hover:bg-violet-950/30 transition-colors">Webflow</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JASA -->
+    <section id="jasa" class="py-24 bg-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl heading-font font-semibold">Jasa Saya</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card bg-zinc-900 border border-white/5 rounded-3xl p-8">
+                    <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-2xl flex items-center justify-center text-3xl mb-8">💻</div>
+                    <h3 class="text-2xl font-semibold mb-3">Web Development</h3>
+                    <p class="text-zinc-400">Website modern, cepat, dan responsif.</p>
+                    <button onclick="orderService('Web Development')" 
+                            class="mt-10 w-full py-4 bg-white text-zinc-900 rounded-2xl font-semibold hover:bg-violet-200 transition-all">
+                        Pesan Sekarang
+                    </button>
+                </div>
+
+                <div class="card bg-zinc-900 border border-white/5 rounded-3xl p-8 relative">
+                    <div class="absolute -top-3 right-6 bg-amber-400 text-zinc-900 text-xs font-bold px-4 py-1 rounded-full">POPULER</div>
+                    <div class="w-14 h-14 bg-gradient-to-br from-pink-500 to-rose-400 rounded-2xl flex items-center justify-center text-3xl mb-8">🎨</div>
+                    <h3 class="text-2xl font-semibold mb-3">UI/UX Design</h3>
+                    <p class="text-zinc-400">Desain antarmuka yang cantik dan user-friendly.</p>
+                    <button onclick="orderService('UI/UX Design')" 
+                            class="mt-10 w-full py-4 bg-white text-zinc-900 rounded-2xl font-semibold hover:bg-violet-200 transition-all">
+                        Pesan Sekarang
+                    </button>
+                </div>
+
+                <div class="card bg-zinc-900 border border-white/5 rounded-3xl p-8">
+                    <div class="w-14 h-14 bg-gradient-to-br from-emerald-500 to-teal-400 rounded-2xl flex items-center justify-center text-3xl mb-8">📱</div>
+                    <h3 class="text-2xl font-semibold mb-3">Digital Marketing</h3>
+                    <p class="text-zinc-400">Strategi pemasaran digital dan konten.</p>
+                    <button onclick="orderService('Digital Marketing')" 
+                            class="mt-10 w-full py-4 bg-white text-zinc-900 rounded-2xl font-semibold hover:bg-violet-200 transition-all">
+                        Pesan Sekarang
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUK -->
+    <section id="produk" class="py-24 bg-zinc-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl heading-font font-semibold">Produk Digital</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card bg-zinc-800 rounded-3xl overflow-hidden">
+                    <img src="https://picsum.photos/id/201/600/400" class="w-full h-56 object-cover" alt="">
+                    <div class="p-6">
+                        <h4 class="font-semibold text-xl">Notion Template - Productivity</h4>
+                        <p class="text-emerald-400 font-medium mt-1">Rp 149.000</p>
+                        <button onclick="buyProduct('Notion Template - Productivity', 149000)" 
+                                class="mt-6 w-full py-3.5 bg-white text-zinc-900 rounded-2xl font-medium">Beli Sekarang</button>
+                    </div>
+                </div>
+                
+                <div class="card bg-zinc-800 rounded-3xl overflow-hidden">
+                    <img src="https://picsum.photos/id/237/600/400" class="w-full h-56 object-cover" alt="">
+                    <div class="p-6">
+                        <h4 class="font-semibold text-xl">UI Kit Tailwind v2</h4>
+                        <p class="text-emerald-400 font-medium mt-1">Rp 249.000</p>
+                        <button onclick="buyProduct('UI Kit Tailwind v2', 249000)" 
+                                class="mt-6 w-full py-3.5 bg-white text-zinc-900 rounded-2xl font-medium">Beli Sekarang</button>
+                    </div>
+                </div>
+                
+                <div class="card bg-zinc-800 rounded-3xl overflow-hidden">
+                    <img src="https://picsum.photos/id/180/600/400" class="w-full h-56 object-cover" alt="">
+                    <div class="p-6">
+                        <h4 class="font-semibold text-xl">Framer Motion Animation Pack</h4>
+                        <p class="text-emerald-400 font-medium mt-1">Rp 99.000</p>
+                        <button onclick="buyProduct('Framer Motion Animation Pack', 99000)" 
+                                class="mt-6 w-full py-3.5 bg-white text-zinc-900 rounded-2xl font-medium">Beli Sekarang</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICE (SUDAH DIPERBAIKI) -->
+    <section id="price" class="py-24 bg-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl heading-font font-semibold">Paket Harga</h2>
+                <p class="text-zinc-400 mt-3">Pilih paket sesuai kebutuhan Anda</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Starter -->
+                <div class="card border border-white/10 bg-zinc-900 rounded-3xl p-8">
+                    <h3 class="text-2xl font-semibold">Starter</h3>
+                    <div class="mt-4 mb-8">
+                        <span class="text-5xl font-bold">Rp 2.000.000</span>
+                    </div>
+                    <ul class="space-y-4 mb-10 text-zinc-300">
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-400"></i> Landing Page</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-400"></i> 3x Revisi</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-400"></i> Domain + Hosting 1 Tahun</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-400"></i> Responsive Design</li>
+                    </ul>
+                    <button onclick="orderService('Paket Starter')" 
+                            class="w-full py-5 border border-white/30 hover:bg-white/10 rounded-2xl font-medium">
+                        Pilih Paket Starter
+                    </button>
+                </div>
+
+                <!-- Professional -->
+                <div class="card border-2 border-violet-500 bg-zinc-900 rounded-3xl p-8 relative">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-violet-600 text-white text-sm font-bold px-6 py-1 rounded-full">RECOMMENDED</div>
+                    <h3 class="text-2xl font-semibold">Professional</h3>
+                    <div class="mt-4 mb-8">
+                        <span class="text-5xl font-bold">Rp 5.000.000</span>
+                    </div>
+                    <ul class="space-y-4 mb-10 text-zinc-300">
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-400"></i> Full Custom Website</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-400"></i> Unlimited Revisi</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-400"></i> SEO + Analytics</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-400"></i> Maintenance 3 Bulan</li>
+                    </ul>
+                    <button onclick="orderService('Paket Professional')" 
+                            class="w-full py-5 bg-violet-600 hover:bg-violet-700 rounded-2xl font-semibold">
+                        Pilih Paket Professional
+                    </button>
+                </div>
+
+                <!-- Enterprise -->
+                <div class="card border border-white/10 bg-zinc-900 rounded-3xl p-8">
+                    <h3 class="text-2xl font-semibold">Enterprise</h3>
+                    <div class="mt-4 mb-8">
+                        <span class="text-5xl font-bold">Rp 12.000.000+</span>
+                    </div>
+                    <ul class="space-y-4 mb-10 text-zinc-300">
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-400"></i> Web App / SaaS</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-400"></i> Integrasi API</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-400"></i> Custom Fitur</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-400"></i> Maintenance 1 Tahun</li>
+                    </ul>
+                    <button onclick="orderService('Paket Enterprise')" 
+                            class="w-full py-5 border border-white/30 hover:bg-white/10 rounded-2xl font-medium">
+                        Hubungi Saya
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT MODAL -->
+    <div id="contactModal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-[100]">
+        <div class="modal bg-zinc-900 w-full max-w-lg mx-4 rounded-3xl p-8">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-semibold" id="modalTitle">Hubungi Saya</h3>
+                <button onclick="closeContactModal()" class="text-4xl leading-none text-zinc-400 hover:text-white">×</button>
+            </div>
+            
+            <div class="space-y-6">
+                <div>
+                    <label class="block text-sm mb-2">Nama Lengkap</label>
+                    <input type="text" id="name" class="w-full bg-zinc-800 border border-white/10 rounded-2xl px-5 py-4 focus:outline-none focus:border-violet-500" placeholder="Masukkan nama Anda">
+                </div>
+                <div>
+                    <label class="block text-sm mb-2">Layanan / Paket</label>
+                    <input type="text" id="service" readonly class="w-full bg-zinc-800 border border-white/10 rounded-2xl px-5 py-4">
+                </div>
+                <div>
+                    <label class="block text-sm mb-2">Pesan Tambahan</label>
+                    <textarea id="message" rows="4" class="w-full bg-zinc-800 border border-white/10 rounded-3xl px-5 py-4 focus:outline-none focus:border-violet-500" placeholder="Ceritakan kebutuhan Anda..."></textarea>
+                </div>
+                
+                <button onclick="sendMessage()" 
+                        class="w-full py-5 bg-emerald-500 hover:bg-emerald-600 rounded-2xl font-semibold text-lg transition-all">
+                    Kirim via WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        function openContactModal() {
+            document.getElementById('contactModal').classList.remove('hidden');
+            document.getElementById('modalTitle').textContent = "Hubungi Saya";
+            document.getElementById('service').value = "";
+        }
+
+        function closeContactModal() {
+            document.getElementById('contactModal').classList.add('hidden');
+        }
+
+        function orderService(serviceName) {
+            document.getElementById('contactModal').classList.remove('hidden');
+            document.getElementById('modalTitle').textContent = serviceName;
+            document.getElementById('service').value = serviceName;
+        }
+
+        function buyProduct(productName, price) {
+            const message = `Halo Iqyan, saya ingin membeli ${productName} seharga Rp ${price.toLocaleString('id-ID')}`;
+            window.open(`https://wa.me/6287862543255?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        function sendMessage() {
+            const name = document.getElementById('name').value || "Tidak disebutkan";
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+
+            let text = `Halo Iqyan,%0ASaya ${name}`;
+            if (service) text += `%0AMau pesan: *${service}*`;
+            if (message) text += `%0A%0APesan:%0A${encodeURIComponent(message)}`;
+
+            window.open(`https://wa.me/6287862543255?text=${text}`, '_blank');
+            closeContactModal();
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('contactModal').addEventListener('click', function(e) {
+            if (e.target === this) closeContactModal();
+        });
+    </script>
+</body>
+</html>
